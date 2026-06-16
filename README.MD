@@ -4,9 +4,9 @@
 
 Este repositório foi desenvolvido como parte do desafio **"Implementando sua Primeira Stack com AWS CloudFormation"**, proposto pela DIO.
 
-O objetivo deste laboratório é aplicar os conceitos fundamentais do **AWS CloudFormation**, utilizando infraestrutura como código (Infrastructure as Code - IaC) para automatizar o provisionamento de recursos na AWS por meio de templates declarativos.
+O objetivo deste laboratório foi colocar em prática os conceitos de **Infrastructure as Code (IaC)** utilizando o **AWS CloudFormation**, automatizando o provisionamento de recursos na AWS através de templates declarativos escritos em YAML.
 
-Além da implementação prática, este projeto busca documentar os conhecimentos adquiridos durante as aulas, servindo como material de consulta para estudos futuros e novas implementações em ambientes reais.
+Durante a prática, foram criadas diferentes stacks para explorar cenários comuns de infraestrutura em nuvem, incluindo instâncias EC2, configuração de servidores Apache, regras de firewall e gerenciamento de usuários e grupos com integração ao Amazon S3.
 
 ---
 
@@ -14,113 +14,146 @@ Além da implementação prática, este projeto busca documentar os conhecimento
 
 Ao concluir este desafio, foram desenvolvidas as seguintes competências:
 
-* Aplicação prática dos conceitos de **Infrastructure as Code (IaC)**;
-* Criação e gerenciamento de recursos utilizando **AWS CloudFormation**;
-* Organização e documentação de processos técnicos;
-* Utilização do **GitHub** para versionamento e compartilhamento de conhecimento;
-* Consolidação dos conhecimentos adquiridos ao longo do laboratório.
+* Aplicar os conceitos de Infrastructure as Code (IaC);
+* Criar e gerenciar recursos utilizando AWS CloudFormation;
+* Automatizar a configuração de ambientes na AWS;
+* Organizar templates reutilizáveis utilizando YAML;
+* Documentar processos técnicos utilizando GitHub e Markdown.
 
 ---
 
-## ☁️ O que é o AWS CloudFormation?
+## ☁️ Sobre o AWS CloudFormation
 
-O **AWS CloudFormation** é um serviço da AWS que permite modelar, provisionar e gerenciar recursos da nuvem por meio de arquivos de configuração escritos em **YAML** ou **JSON**.
+O AWS CloudFormation é um serviço que permite modelar, provisionar e gerenciar recursos da AWS por meio de código.
 
-Com ele, é possível definir toda a infraestrutura necessária para uma aplicação de forma automatizada, garantindo maior padronização, repetibilidade e redução de erros manuais.
+Com ele, é possível definir toda a infraestrutura necessária para uma aplicação utilizando arquivos YAML ou JSON, proporcionando maior padronização, repetibilidade e facilidade de manutenção dos ambientes.
 
-### Principais benefícios
+### Benefícios do CloudFormation
 
 * Infraestrutura como código;
-* Automação do provisionamento de recursos;
-* Versionamento da infraestrutura;
+* Automação do provisionamento;
 * Reutilização de templates;
-* Facilidade na replicação de ambientes.
+* Controle de versão da infraestrutura;
+* Redução de erros manuais;
+* Facilidade para replicar ambientes.
 
 ---
 
-## 🏗️ Etapas Realizadas
-
-Durante a execução do laboratório, foram realizadas as seguintes atividades:
-
-1. Estudo dos conceitos fundamentais do AWS CloudFormation;
-2. Análise da estrutura de um template CloudFormation;
-3. Criação da primeira Stack na AWS;
-4. Provisionamento automatizado dos recursos definidos no template;
-5. Acompanhamento dos eventos de criação da Stack;
-6. Validação dos recursos implantados;
-7. Registro das evidências e documentação do processo.
-
----
-
-## 📁 Estrutura do Repositório
+## 📂 Estrutura do Repositório
 
 ```text
 .
-├── README.md
-├── templates/
-│   └── stack.yaml
-├── images/
-│   ├── stack-creation.png
-│   ├── resources-created.png
-│   └── cloudformation-console.png
-└── notes/
-    └── aprendizados.md
+├── 01-EC2.yaml
+├── 02-Apache.yaml
+├── 03-Firewall.yaml
+├── 04-EC2_S3_UserGroup.yaml
+└── README.md
 ```
 
 ---
 
-## 🚀 Como executar uma Stack utilizando CloudFormation
+## 📄 Templates Desenvolvidos
+
+### 01 - EC2
+
+Template responsável pela criação de uma instância EC2 básica utilizando o AWS CloudFormation.
+
+**Conceitos praticados:**
+
+* Criação de instâncias EC2;
+* Definição de propriedades da instância;
+* Provisionamento automatizado de recursos.
+
+---
+
+### 02 - Apache
+
+Template utilizado para automatizar a instalação e configuração do servidor web Apache em uma instância EC2.
+
+**Conceitos praticados:**
+
+* Uso de User Data;
+* Inicialização automática de serviços;
+* Configuração de servidores web via CloudFormation.
+
+---
+
+### 03 - Firewall
+
+Template responsável pela configuração das regras de acesso à infraestrutura.
+
+**Conceitos praticados:**
+
+* Criação de Security Groups;
+* Definição de portas liberadas;
+* Controle de tráfego de entrada e saída.
+
+---
+
+### 04 - EC2, S3, Usuários e Grupos
+
+Template mais completo do laboratório, envolvendo múltiplos recursos da AWS.
+
+**Conceitos praticados:**
+
+* Provisionamento de instâncias EC2;
+* Criação de buckets S3;
+* Gerenciamento de usuários IAM;
+* Criação e associação de grupos IAM;
+* Definição de permissões de acesso.
+
+---
+
+## 🚀 Como executar os templates
 
 1. Acesse o console da AWS;
 2. Navegue até o serviço **CloudFormation**;
 3. Clique em **Create Stack**;
-4. Escolha a opção **With new resources (standard)**;
-5. Faça o upload do template YAML/JSON;
+4. Escolha **With new resources (standard)**;
+5. Faça o upload do template desejado (`.yaml`);
 6. Informe o nome da Stack;
 7. Configure os parâmetros necessários;
 8. Revise as configurações;
-9. Clique em **Submit** para iniciar a criação;
-10. Acompanhe os eventos até que o status seja exibido como **CREATE_COMPLETE**.
+9. Clique em **Submit**;
+10. Aguarde até que o status seja exibido como **CREATE_COMPLETE**.
 
 ---
 
 ## 🧠 Aprendizados Obtidos
 
-Durante este desafio, foi possível compreender a importância da automação da infraestrutura em ambientes de nuvem.
+Durante este desafio, foi possível compreender como o CloudFormation simplifica o gerenciamento de infraestrutura através da automação.
 
-A utilização do CloudFormation demonstra como a infraestrutura pode ser tratada como código, permitindo maior controle sobre mudanças, padronização entre ambientes e facilidade na reprodução de arquiteturas.
+A criação de diferentes templates permitiu visualizar, na prática, como diversos serviços da AWS podem ser provisionados e configurados de forma padronizada e reproduzível.
 
-Além disso, o laboratório reforçou boas práticas relacionadas à documentação técnica e ao uso do GitHub como ferramenta de compartilhamento de conhecimento.
+Além disso, o laboratório reforçou a importância da documentação técnica e do versionamento utilizando GitHub.
 
 ---
 
 ## 📸 Evidências
 
-As capturas de tela utilizadas para documentar a execução do laboratório podem ser encontradas na pasta:
+Caso deseje complementar este repositório, recomenda-se adicionar capturas de tela demonstrando:
 
-```text
-/images
-```
-
-Sugestões de evidências:
-
-* Tela de criação da Stack;
-* Eventos de execução;
+* Criação das stacks;
+* Eventos de execução do CloudFormation;
 * Recursos provisionados;
-* Status final `CREATE_COMPLETE`.
+* Status `CREATE_COMPLETE`.
+
+As imagens podem ser organizadas em uma pasta `/images`.
 
 ---
 
 ## 📚 Referências
 
-* Documentação Oficial da AWS CloudFormation;
-* Materiais disponibilizados pela DIO durante o laboratório;
-* Documentação oficial do GitHub sobre Markdown.
+* Documentação Oficial do AWS CloudFormation;
+* Materiais disponibilizados pela DIO;
+* Documentação oficial do GitHub Markdown.
 
 ---
 
 ## 👨‍💻 Autor
 
-Desenvolvido por **Vando Alves** durante os estudos da formação **Fundamentos de Cloud com AWS**, promovida pela **DIO (Digital Innovation One)**.
+**Vando Alves**
+
+Desafio desenvolvido durante a formação **Fundamentos de Cloud com AWS**, oferecida pela **DIO (Digital Innovation One)**.
 
 GitHub: https://github.com/vandoaderson
